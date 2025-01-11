@@ -1,0 +1,163 @@
+
+.fw{
+    font: bolder 1.2rem "微软雅黑" !important;
+}
+.fs{
+    font: normal 0.8rem "微软雅黑";
+    color: rgb(86, 86, 86);
+}
+#popusWindow{
+  width: fit-content;
+  height: fit-content;
+  font-family: 'Arial', sans-serif; /* 你可以根据需要更改字体 */
+  font-size:2rem;
+  font-weight: bolder;
+  margin: auto;
+}
+body{
+  /* background-image: url("@/assets/image/loback.webp"); */
+  background-size: cover;
+  object-position: 50px;
+  backdrop-filter: blur(20px);
+}
+.login-new-wrap{
+    height:65vh;
+    width: 100vw;
+    margin-top: 100px; /** 防止塌陷 BFC */
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    /* background: url(@/assets/image/loback.webp);   */
+    background-size: cover;
+  }
+  .content{
+    height: 85%;
+    width: 60%;
+    padding:28px 0;
+    display: grid;
+    border-radius: 10px;
+    grid-template-columns : 1.3fr 1fr; /* 按照 Y 轴划分两行 */
+    background-color: rgb(255, 255, 255,0.4);
+  }
+  .login-form-l{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .login-body{
+    width: 60%;
+    height: fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    gap: 16px;
+  }
+  .login-body::after{
+    content: ''; /* 必须设置 content 属性 */
+    width: 40%;
+    height: 85%;
+    /* background-color: blueviolet; */
+    display: block; /* 确保伪元素有尺寸 */
+    position: absolute;
+    left: 100%;
+    bottom: 20px;
+    border-right: 1px solid rgb(0, 0, 0,0.8);
+  }
+  .form-login-type-toggle :nth-child(1){ /* TPDO 改为点击修改元素颜色 **/
+    color: red;
+  }
+  .form-login-type-toggle{
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .form-login-type-toggle > span{
+    display:inline-block;
+    margin-right: 15px;
+    }
+  .login-bottom{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.login-input{
+    height:40px !important;
+    width: 100% !important;
+    background-color:#FD9D94 !important;
+    color: rgba(255,255,255,1) !important;
+    border-radius: 8px !important;
+    letter-spacing: 15px !important; /* 设置字间距为 4px */ 
+    font-variant: 50px !important ;
+    font-size: 1.0rem !important;
+    margin-bottom: 3px;
+}
+
+.item-fore1{
+    margin-left: auto;
+    justify-self:left;
+}
+.coagent{
+  width: 100%;
+  height: fit-content; /* 父元素适应子元素大小**/
+  margin-top: 20px;
+}
+ul,ul > li{
+  display: flex;
+  list-style: none;
+  float: inline-start;
+  padding: 0px;
+  align-items: center;
+}
+.line{
+  padding: 0 12px;
+} 
+.pd1{
+  float: left;
+  margin-right: 12px;
+}
+a{
+  color: black;
+}
+.regist-link{
+  display: block;
+  position: absolute;
+  right: 0;
+}
+/* 菜单样式 */
+.user-actions{
+  width: 300px;
+  height: 500px;
+  position: absolute;
+  padding: 20px;          
+  right: 0;
+  box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.5);
+  background-color: rgb(255, 255, 255);
+  list-style:none;
+  z-index: 10;
+}
+
+.el-menu{   
+/* 样式规则 */
+padding:0 30px;
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color:white
+}
+.operation-dropdown{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  top: 100%;
+  width: 400px;
+  height: 200px;
+  box-shadow: 0px 0px 3px -1px;
+  background-color: rgb(255, 255, 255);
+}
