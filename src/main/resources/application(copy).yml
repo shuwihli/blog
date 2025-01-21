@@ -1,0 +1,30 @@
+spring:
+#  mvc:
+      # URL响应地址（Springboot默认为/**)
+#      static-path-pattern:
+  web:
+      resources:
+        # 静态文件地址，保留官方内容后，进行追加
+        static-locations: classpath:/static,classpath:/public,classpath:/resources,classpath:/META-INF/resources,file:C:\Users\lmclm\Pictures\ProjectImg
+  datasource:
+    url: jdbc:mysql://localhost:3306/mybatisplus?characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+upload: C:\Users\lmclm\Pictures\ProjectImg\
+#upload: http://127.0.0.1:9090/${}
+#配置自动转驼峰
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+server:
+  port: 9090
+  servlet:
+    session:
+      #会话过期时间默认是30m过期,最少为1分钟
+      timeout: 72000s
+# 静态资源的访问路径

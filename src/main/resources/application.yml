@@ -1,0 +1,37 @@
+spring:
+#  mvc:
+      # URL响应地址（Springboot默认为/**)
+#      static-path-pattern:
+
+  web:
+      resources:
+        # 静态文件地址，保留官方内容后，进行追加
+        static-locations: classpath:/static,classpath:/public,classpath:/resources,classpath:/META-INF/resources,file:C:\Users\lmclm\Pictures\ProjectImg,file:/home/blogimage/
+  datasource:
+#    url: jdbc:mysql://192.168.200.3:3306/mybatisplus?characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://localhost:3306/mybatisplus?characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+upload: C:\Users\lmclm\Pictures\ProjectImg\
+#upload: /home/blogimage/
+#upload: http://127.0.0.1:9090/${}
+server:
+  port: 9090
+  servlet:
+    session:
+      #会话过期时间默认是30m过期,最少为1分钟
+      timeout: 72000s
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+# 微信开放平台 appid
+wx:
+  open:
+    app_id: wx7098f5e1c93ae8b5
+    app_secret: 26938cd2915f59f880cb46ccc37623d6
+    redirect_url: https://e157f6e.r22.cpolar.top/wx/callback
