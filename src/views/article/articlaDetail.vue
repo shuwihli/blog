@@ -30,8 +30,9 @@ const id = {
 }
 const article = ref()
 getByIdArt(id).then((res)=>{
+    console.log(id)
     article.value = res.data.data
-    console.log(article.value)
+    console.table("详情页信息",res.data)
 })
 
 </script>

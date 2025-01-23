@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Login from '../views/Login/Login.vue'
-import isAuthenticated from '../api/isAuth'
+import {isAuthenticated} from '@/router/isAuth'
 import PersonalData from '../views//UserOption/PersonalData.vue'
 import UserAccount from '../views/UserOption/UserAccount.vue'
 import article from '../views/article/article.vue';
@@ -56,18 +56,11 @@ const router = createRouter({
   
   ] 
 })
-// router.beforeEach(async (to, from, next) => {
-//   try {
-//     const isAuth = await isAuthenticated();
-//     if (!isAuth && to.name !== 'Login') {
-//       next({ name: 'Login' }); // 重定向到登录页面
-//     } else {
-//       // alert("登录成功"); 
-//       next(); // 继续导航
-//     }
-//   } catch (error) {
-//     console.error('Error:', error);
-//     next(false); // 错误处理，中断导航
-//   }
-// });
-  export default router
+router.beforeEach((to, from) => {
+  if(! isAuthenticated()&&to.name !== 'Login'){
+    alert("请登录")
+    return { name: 'Login' }
+  }
+  return true
+})
+export default router

@@ -35,11 +35,11 @@ const rules = reactive({
     {required:true,message:"请输入职业方向",trigger:'change'},
   ]
 })
-// 获取用户信息
-axios.get("http://localhost:9090/getuser",{withCredentials: true,}).then(res=>{
- form.name = res.data.authentication.principal.nickName 
-  console.log(res.data.authentication.principal.nickName);
-})
+// // 获取用户信息
+// axios.get("http://localhost:9090/loginUser",{withCredentials: true,}).then(res=>{
+//   form.name = res.data.authentication.principal.nickName 
+//   console.log(res.data.authentication.principal.nickName);
+// })
 
 const router = useRouter();
 // 侧边栏路由跳转
@@ -57,12 +57,10 @@ const { circleUrl, squareUrl, sizeList } = toRefs(state)
 </script>
 <template>
     <HorizontalNav/>
-    <div class="common-layout">sdasda
-      <el-container>
+    <div class="common-layout">
         <el-header height="50px" class="Header">
-            <a href="">>返回个人主页</a>
+            <a class="fm">>返回个人主页</a>
         </el-header>
-
         <el-container class="body">
           <el-aside width="200px" class="aside">
             <!-- 设置字体大小为16px,还未设置 -->
@@ -92,7 +90,6 @@ const { circleUrl, squareUrl, sizeList } = toRefs(state)
           <router-view>  </router-view>
         </el-main>
         </el-container>
-      </el-container>
     </div>
 </template>
 <style scoped>

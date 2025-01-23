@@ -45,6 +45,11 @@ const editorConfig = {
 editorConfig.MENU_CONF['uploadImage'] = {
   server: '/api/upload',
   fieldName: 'image',
+  // 单个文件的最大体积限制，默认为 2M
+  maxFileSize: 1 * 2048 * 2048, // 1M
+  withCredentials: true,
+// 最多可上传几个文件，默认为 100
+  maxNumberOfFiles: 10,
 }
 
 // 组件销毁时，也及时销毁编辑器

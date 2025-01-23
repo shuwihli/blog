@@ -5,14 +5,15 @@ import { createApp } from 'vue'
 import app from './views/App.vue'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-import router from './router'
+import router from '@/router/index'
 import axios from 'axios'
-import HorizontalNav  from './components/menu/menu(弃用).vue'
+import HorizontalNav  from './components/menu/menu.vue'
 import PopUps  from '@/components/POP/PopUps.vue'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import Editor from './components/editor/editor.vue'
 import articleTem from '@/components/articleTem/articleTem.vue'
 import { Base64 } from 'js-base64'; // base64.js
+import VueQrcode from 'vue-qrcode'
 import { getUserInfo } from '@/utils/getCookie'
 const user = createApp(app)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
@@ -23,6 +24,7 @@ user.component('HorizontalNav',HorizontalNav)
 user.component('editor',Editor)
 user.component('PopUps',PopUps)
 user.component('articleTem',articleTem)
+user.component('vue-qrcode',VueQrcode)
 user.use(router)
 user.use(getUserInfo)
 user.use(Base64)
