@@ -84,10 +84,11 @@
 <script setup>
 import { reactive, toRefs,onMounted ,onBeforeMount} from 'vue'
 import { useRouter } from 'vue-router';
+import getUserInfo from "@/api/SystemApi/userInfo" 
 import { ref } from 'vue';
-import {BaseEncode,BaseDecode} from '@/utils/BaseUtil'
 onBeforeMount(()=>{
-    getUserInfo()
+    const loginUser = getUserInfo(userInfo)
+    avatarUrl.value = loginUser.avatar
 })
 const router = useRouter();
 // let username = ref("默认用户")
@@ -118,34 +119,34 @@ function write(){
 const openView = function (){
     view.value?view.value = false:view.value = true
 }
-function checkProtocolAndIP(str) {
-      try {
-      new URL(str);
-      return true;
-    } catch (e) {
-      return false;
-    }
-}
-function getUserInfo(){ // 从cookie中获取用户存储的信息
-    var cookie = document.cookie.replace(
-     /(?:(?:^|.*;\s*)userInfo\s*\=\s*([^;]*).*$)|^.*$/, 
-     "$1",
-    );
-    if(cookie){
-        userInfo.value = JSON.parse(BaseDecode(cookie))
-        console.log(userInfo.value);
-        if(checkProtocolAndIP(userInfo.value.avatar)){
-            const temp = ref(userInfo.value.avatar)
-            avatarUrl.value = JSON.stringify(temp.value).slice(1,-1)//我也不知道我写了啥，但反正能用
-            console.log(avatarUrl.value);
+// function checkProtocolAndIP(str) {
+//       try {
+//       new URL(str);
+//       return true;
+//     } catch (e) {
+//       return false;
+//     }
+// }
+// function getUserInfo(){ // 从cookie中获取用户存储的信息
+//     var cookie = document.cookie.replace(
+//      /(?:(?:^|.*;\s*)userInfo\s*\=\s*([^;]*).*$)|^.*$/, 
+//      "$1",
+//     );
+//     if(cookie){
+//         userInfo.value = JSON.parse(BaseDecode(cookie))
+//         console.log(userInfo.value);
+//         if(checkProtocolAndIP(userInfo.value.avatar)){
+//             const temp = ref(userInfo.value.avatar)
+//             avatarUrl.value = JSON.stringify(temp.value).slice(1,-1)//我也不知道我写了啥，但反正能用
+//             console.log(avatarUrl.value);
             
-        }else{
-            const temp = ref("http://127.0.0.1:9090/" + userInfo.value.avatar)
-            avatarUrl.value = JSON.stringify(temp.value).slice(1,-1)//我也不知道我写了啥，但反正能用
-        }
-    }
-    return "没有该cookie值"
-}
+//         }else{
+//             const temp = ref("http://127.0.0.1:9090/" + userInfo.value.avatar)
+//             avatarUrl.value = JSON.stringify(temp.value).slice(1,-1)//我也不知道我写了啥，但反正能用
+//         }
+//     }
+//     return "没有该cookie值"
+// }
 // 确认登录弹窗
 function userlogout(){
     PopUpsRef.value.changeView()

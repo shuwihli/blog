@@ -71,7 +71,7 @@ import { Plus } from '@element-plus/icons-vue'
 import {BaseEncode,BaseDecode} from '@/utils/BaseUtil'
 import type { UploadProps } from 'element-plus'
 onMounted(()=>{
-  getUserInfo()
+  getUserInfo1()
 })
 const form = reactive({
     name: '',
@@ -94,7 +94,7 @@ function checkProtocolAndIP(str) {
       return false;
     }
 }
-function getUserInfo(){ // 从cookie中获取用户存储的信息
+function getUserInfo1(){ // 从cookie中获取用户存储的信息
   var cookie = document.cookie.replace(
     /(?:(?:^|.*;\s*)userInfo\s*\=\s*([^;]*).*$)|^.*$/, 
     "$1",

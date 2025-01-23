@@ -24,19 +24,7 @@ import { DomEditor } from '@wangeditor/editor'
 
 // 编辑器实例，必须用 shallowRef
 const editorRef = shallowRef()
-
-// 内容 HTML
-// const valueHtml = ref('<p>写点什么吧（文本两秒后消失）</p>')
-
-// 模拟 ajax 异步获取内容
-// onMounted(() => {  // 测试环境 不要了
-//   setTimeout(() => {
-//     valueHtml.value = '<p></p>'
-//   }, 2500)
-// })
-
 const toolbarConfig = {}
-
 const editorConfig = {
   placeholder: '请输入内容...',
   MENU_CONF: {}

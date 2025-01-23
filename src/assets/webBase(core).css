@@ -9,6 +9,13 @@
       font: normal 0.8rem "微软雅黑";
       color: rgb(86, 86, 86);
   }
+  .fnw{
+    font: normal 1.3rem "微软雅黑" !important;
+  }
+  .fnm{
+    font: normal 1.1rem "微软雅黑" !important;
+
+}
   .Toggle {
     animation-duration: 3s;
     animation-name: slidein;

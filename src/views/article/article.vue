@@ -2,8 +2,7 @@
   <HorizontalNav/>
 <div class="common-layout">
       <!-- <el-aside class="aside"></el-aside> -->
-      <el-container class="main-container">
-        <el-main class="main">
+      <div class="main-container">
             <div class="content_list" v-for="item in items.value" :key="item.id" @click="article_detail(item.id)">
               <div class="list_left">
                 <div class="fw" style="margin-bottom:8px;font-weight: bolder">{{ item.title}}</div>
@@ -27,8 +26,8 @@
                   <img class="list_img" v-if="!item.cover" src="" alt="文章没有图片">
                </div>
             </div>
-          </el-main >
-      </el-container>
+          </div>
+          <!-- <div class="aside"></div> -->
   </div>
 </template>
 <script setup>
@@ -44,14 +43,11 @@ function getData(){
     // 文章封面 - 利用正则表达式取出图片路径 并做为属性使用Object.assign添加到res.data中
     for(let i =0;i<res.data.length;i++){
       const url = res.data[i].content.match(imgre)
-      console.log(url)
       Object.assign(res.data[i],{cover:url})
     }
     items.value = res.data
-    console.log(items.value)
   })
 }
-
 onMounted(()=>{
   getHeat()
   getData()
