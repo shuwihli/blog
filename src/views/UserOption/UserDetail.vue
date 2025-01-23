@@ -62,12 +62,12 @@ const { circleUrl, squareUrl, sizeList } = toRefs(state)
             <a class="fm">>返回个人主页</a>
         </el-header>
         <el-container class="body">
-          <el-aside width="200px" class="aside">
+          <el-aside width="200px" class="user-aside">
             <!-- 设置字体大小为16px,还未设置 -->
               <el-row>
-                <el-col :span="24" gutter="0">
-                  <el-button style="width: 100%;height: 50px; border-style: none;" @click="pushScopeId()" >个人资料</el-button>
-              </el-col>
+                <el-col :span="24" gutter="0" class="fm">
+                  <el-button  style="width: 100%;height: 50px; border-style: none;" @click="pushScopeId()" >个人资料</el-button>
+              </el-col> 
               <el-col :span="24" gutter="0">
                 <el-button style="width: 100%;height: 50px; border-style: none;" @click="pushScopeud()">账号设置</el-button>
               </el-col>
