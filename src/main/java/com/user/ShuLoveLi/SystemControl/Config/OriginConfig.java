@@ -12,7 +12,7 @@ public class OriginConfig implements WebMvcConfigurer{
         public void addCorsMappings(CorsRegistry registry) {
             registry.addMapping("/**")
 //                    .allowedOrigins("http://127.0.0.1:5173")
-                    .allowedOrigins("http://127.0.0.1:5173","http://192.168.200.3:9998","http://kr-se-cncn-1.ofalias.net:39153")
+                    .allowedOrigins("http://127.0.0.1:5173","http://192.168.200.3:9998","3404d995.r22.cpolar.top")
                     .allowCredentials(true)
                     .allowedMethods("GET", "POST", "DELETE", "PUT")
                     .maxAge(3600);

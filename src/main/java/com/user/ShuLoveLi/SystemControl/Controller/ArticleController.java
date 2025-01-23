@@ -27,7 +27,6 @@ public class ArticleController {
     @GetMapping( "/getById")
     public ResResult getArticleById(@RequestParam Integer id) {
         Article articleById = articleMapper.getArticleById(id);
-        System.out.println(articleById);
         return ResResult.success(articleById);
     }
     /**

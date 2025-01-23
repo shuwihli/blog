@@ -12,7 +12,7 @@ public class Article {
     //    private Integer articleId; //
     private String date;
     private String nickName; // 作者名称
-
+    private String avatar;
 //    private Integer hot;
 //    private Integer views;
 //    private Integer thumbsUp;
