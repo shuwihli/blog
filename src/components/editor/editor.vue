@@ -7,7 +7,7 @@
       :mode="mode"
     />
     <Editor
-      style="height: 500px; overflow-y: hidden;"
+      style="height:70vh;overflow-y: hidden;width: 100vw;"
       v-model="valueHtml"
       :defaultConfig="editorConfig"
       :mode="mode"
@@ -24,7 +24,9 @@ import { DomEditor } from '@wangeditor/editor'
 
 // 编辑器实例，必须用 shallowRef
 const editorRef = shallowRef()
+
 const toolbarConfig = {}
+
 const editorConfig = {
   placeholder: '请输入内容...',
   MENU_CONF: {}

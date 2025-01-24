@@ -1,6 +1,8 @@
 <template>
-    <el-button class="bt-publish" @click="getHtml">点击发布文章</el-button>
-    <el-input v-model="article.title" style="width: 240px" />
+  <div class="wa-container">
+    <el-input class="w-input fw" v-model="article.title" style="width: 240px" />
+    <el-button class="bt-publish fnw" @click="getHtml">  点击发布文章</el-button>
+  </div>
     <editor ref="editorRef"></editor>
   </template>
   

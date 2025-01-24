@@ -14,6 +14,10 @@ import Editor from './components/editor/editor.vue'
 import articleTem from '@/components/articleTem/articleTem.vue'
 import { Base64 } from 'js-base64'; // base64.js
 import VueQrcode from 'vue-qrcode'
+import UndrawUi from 'undraw-ui'
+import comment from '@/components/comment/comment.vue'
+import 'undraw-ui/dist/style.css'
+import 'bytemd/dist/index.css'
 import { getUserInfo } from '@/utils/getCookie'
 const user = createApp(app)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
@@ -24,7 +28,10 @@ user.component('HorizontalNav',HorizontalNav)
 user.component('editor',Editor)
 user.component('PopUps',PopUps)
 user.component('articleTem',articleTem)
+user.component('comment',comment)
 user.component('vue-qrcode',VueQrcode)
+user.use(ElementPlus)
+user.use(UndrawUi)
 user.use(router)
 user.use(getUserInfo)
 user.use(Base64)

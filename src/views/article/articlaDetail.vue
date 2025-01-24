@@ -14,12 +14,12 @@
         </template>
         <!-- 评论插槽 -->
         <template #comment>
-
+            <comment :artId=queryParam></comment>
         </template>
         <template #avatar>
             <div class="aside-container">
                 <div class="aside-avater">
-                    <el-avatar shape="circle" :size="100" :fit="cover" :src="article.avatar" />
+                    <el-avatar shape="circle" :size="80" :fit="cover" :src="article.avatar" />
                 </div>
                 <div class="a-auther">
                     <div class="fnw">{{ article.nickName }}</div>
