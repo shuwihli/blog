@@ -55,7 +55,6 @@ public class ArticleController {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String format = simpleDateFormat.format(date);
         article.setDate(format);
-//        System.out.println(article);
         return articleMapper.addArticle(article);
     }
 }

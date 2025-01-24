@@ -24,7 +24,6 @@ public class LoginUser implements UserDetails {
     private short phone; // short 16位，最高位是字符位，所以只能表示2^15
     private String email;
     private String authorities;
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         ArrayList<SimpleGrantedAuthority> simpleGrantedAuthorities = new ArrayList<SimpleGrantedAuthority>();
