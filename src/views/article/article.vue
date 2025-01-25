@@ -28,9 +28,6 @@
             <!-- </div> -->
               </div>
   </div>
-  <div class="art-aside">
-
-  </div>
 
 </template>
 <script setup>
