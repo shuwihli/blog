@@ -2,6 +2,7 @@ package com.user.ShuLoveLi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.server.session.CookieWebSessionIdResolver;
 
 @SpringBootApplication
 public class UserApplication {

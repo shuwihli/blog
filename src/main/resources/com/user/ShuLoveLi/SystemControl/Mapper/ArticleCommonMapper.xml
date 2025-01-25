@@ -4,9 +4,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.user.ShuLoveLi.SystemControl.Mapper.ArticleCommonMapper">
     <!-- 插入一条评论 -->
-    <insert id="insertArtCommon" parameterType="com.user.ShuLoveLi.SystemControl.Domain.ArtCommon" useGeneratedKeys="true" keyProperty="id">
+    <insert id="insertArtCommon" parameterType="com.user.ShuLoveLi.SystemControl.Domain.ArtCommon.ArtCommon" keyProperty="id">
         INSERT INTO art_common
         <trim prefix="(" suffix=")" suffixOverrides=", ">
+            <if test="id!=null and id!=''">id,</if>
             <if test="parentId != null and parentId!='' ">parent_id,</if>
             <if test="uId != null">u_id,</if>
             <if test="content != null and content != ''">content,</if>
@@ -15,6 +16,7 @@
             <if test="articleId != null">article_id,</if>
         </trim>
         <trim prefix="VALUES (" suffix=")" suffixOverrides=", ">
+            <if test="id != null and id!=''">#{id},</if>
             <if test="parentId != null and parentId!=''">#{parentId},</if>
             <if test="uId != null">#{uId},</if>
             <if test="content != null and content != ''">#{content},</if>
@@ -25,32 +27,42 @@
     </insert>
 
     <!-- resultMap for ArtCommon -->
-    <resultMap id="ArtCommonResultMap" type="com.user.ShuLoveLi.SystemControl.Domain.ArtCommon">
+    <resultMap id="ArtCommonResultMap" type="com.user.ShuLoveLi.SystemControl.Domain.ArtCommon.ArtCommon">
         <id property="id" column="id"/>
         <result property="parentId" column="parent_id"/>
         <result property="uId" column="u_id"/>
         <result property="content" column="content"/>
         <result property="createTime" column="create_time"/>
-        <association property="user" javaType="com.user.ShuLoveLi.SystemControl.Domain.LoginUser">
-            <id property="id" column="id"/>
+        <association property="user" javaType="com.user.ShuLoveLi.SystemControl.Domain.ArtCommon.ArtCommonUser">
             <result property="nickName" column="nickname"/>
+            <result property="username" column="username"/>
             <result property="avatar" column="avatar"/>
-            <result property="authorities" column="authorities"/>
         </association>
-        <association property="replay" javaType="com.user.ShuLoveLi.SystemControl.Domain.ArtCommonReplay">
+        <association property="reply" javaType="com.user.ShuLoveLi.SystemControl.Domain.ArtCommon.ArtCommonReply">
             <result property="total" column="total"/>
-            <collection property="list" javaType="com.user.ShuLoveLi.SystemControl.Domain.ArtCommon">
+            <collection property="list" javaType="com.user.ShuLoveLi.SystemControl.Domain.ArtCommon.ArtCommonReplyList">
                 <id property="id" column="id"/>
                 <result property="parentId" column="parent_id"/>
                 <result property="uId" column="u_id"/>
                 <result property="content" column="content"/>
                 <result property="createTime" column="create_time"/>
+                <association property="user" javaType="com.user.ShuLoveLi.SystemControl.Domain.ArtCommon.ArtCommonUser">
+                    <result property="nickName" column="nickname"/>
+                    <result property="username" column="username"/>
+                    <result property="avatar" column="avatar"/>
+                </association>
             </collection>
         </association>
     </resultMap>
 
     <!-- 查询所有评论 -->
-    <select id="getAllArtCommons" resultMap="ArtCommonResultMap">
-        SELECT c.id,c.parent_id,c.u_id,c.content,c.create_time,u.nickname,u.avatar,u.authorities FROM art_common c left join `user` u on c.u_id =  u.id where c.article_id = #{id}
+    <select id="getAllArtCommons" resultMap="ArtCommonResultMap" parameterType="com.user.ShuLoveLi.SystemControl.Domain.ArtCommon.ArtCommonUser">
+        SELECT c.id,c.parent_id,c.u_id,c.content,c.create_time,u.nickname,u.avatar,u.authorities FROM art_common c left
+        join `user` u on c.u_id = u.id
+        <where>
+            <if test="articleId!=null and articleId !=''">c.article_id = #{articleId}</if>
+            <if test="parentId!=null and parentId!=''">and c.id = #{parentId}</if>
+        </where>
+
     </select>
 </mapper>

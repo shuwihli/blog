@@ -1,4 +1,4 @@
-package com.user.ShuLoveLi.SystemControl.Domain;
+package com.user.ShuLoveLi.SystemControl.Domain.ArtCommon;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 @Data
 @Component
-public class ArtCommonReplay {
+public class ArtCommonReply {
     Integer total;
-    List<ArtCommonReplayList> list = new ArrayList<>();
+    List<ArtCommonReplyList> list = new ArrayList<>();
 }

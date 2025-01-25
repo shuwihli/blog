@@ -1,16 +1,16 @@
-package com.user.ShuLoveLi.SystemControl.Domain;
+package com.user.ShuLoveLi.SystemControl.Domain.ArtCommon;
 
+import com.user.ShuLoveLi.SystemControl.Domain.LoginUser;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
 @Data
 @Component
-public class ArtCommonReplayList {
+public class ArtCommonReplyList {
     private String id;
     private String parentId;
     private String uId;
     private String content;
     private String createTime;
-    private LoginUser user;
+    private ArtCommonUser user;
 }
