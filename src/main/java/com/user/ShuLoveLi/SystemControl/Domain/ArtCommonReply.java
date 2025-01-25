@@ -9,5 +9,5 @@ import java.util.List;
 @Component
 public class ArtCommonReplay {
     Integer total;
-    List<ArtCommon> list = new ArrayList<>();
+    List<ArtCommonReplayList> list = new ArrayList<>();
 }
