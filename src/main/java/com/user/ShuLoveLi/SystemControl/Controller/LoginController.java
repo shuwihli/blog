@@ -31,6 +31,7 @@ public class LoginController {
     UserDetailMapper getUserMapper;
     @Autowired
     AuthenticationManager authenticationManager;
+
     private final SecurityContextRepository securityContextRepository = new HttpSessionSecurityContextRepository();
     private final SecurityContextHolderStrategy securityContextHolderStrategy = SecurityContextHolder.getContextHolderStrategy();
 
@@ -57,14 +58,17 @@ public class LoginController {
         if(userByName!=null){
             return ResResult.error(ErrorEnum.HAS_USER,username);
         }
-        String userId = UUID.randomUUID().toString();
         loginUser.setAuthorities("ROLR_USER");
-        loginUser.setId(userId);
+        if(loginUser.getId() == null){
+            String userId = UUID.randomUUID().toString();
+            loginUser.setId(userId);
+        }
         // 密码加密
         PasswordEncoder delegatingPasswordEncoder = PassWordEncoder.createDelegatingPasswordEncoder();
         String encode = delegatingPasswordEncoder.encode(loginUser.getPassword());
         loginUser.setPassword(encode);
         getUserMapper.signUser(loginUser);
+
         return ResResult.success(loginUser);
     }
 

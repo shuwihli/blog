@@ -36,3 +36,4 @@ wx:
     app_secret: 26938cd2915f59f880cb46ccc37623d6
     redirect_url: https://e157f6e.r22.cpolar.top/wx/callback
 localIp: "http://127.0.0.1:9090/"
+wxRedirect: "https://6fe6b20a.r22.cpolar.top"

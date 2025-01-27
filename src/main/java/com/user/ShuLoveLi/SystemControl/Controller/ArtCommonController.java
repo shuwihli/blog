@@ -28,6 +28,7 @@ public class ArtCommonController {
     public ResResult addArtCommon(@RequestBody ArtCommon artCommon) {
 //        String id = artCommon.getId();
 //        artCommon.setArticleId(articleId);//设置文章Id号
+
         int i = articleCommonMapper.insertArtCommon(artCommon);
         return ResResult.success(i);
     }
@@ -79,7 +80,11 @@ public class ArtCommonController {
                         // 由于评论组件的需要接收username参数 将昵称与用户账户号对调展示
                         item.getUser().setUsername(item.getUser().getNickName());
                         // 构造完整的评论头像
-                        item.getUser().setAvatar(localIp + item.getUser().getAvatar());
+                        if(item.getUser().getAvatar().startsWith("http")){
+                            item.getUser().setAvatar(item.getUser().getAvatar());
+                        }else{
+                            item.getUser().setAvatar(localIp+item.getUser().getAvatar());
+                        }
                         commonObjectReplay.setUser(item.getUser());
                         commonObjectReplay.setContent(item.getContent());
                         item1.getReply().getList().add(commonObjectReplay);
