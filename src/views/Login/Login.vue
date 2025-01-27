@@ -138,11 +138,9 @@ function setCookie(user,origin) // 设置cookie
 }
 function setwxCookie(user) // 设置cookie
 {
-  console.log(wxUserInfo);
   wxUserInfo.value.avatar = user.headimgurl
-  wxUserInfo.value.nickName = user.nickname
-  // wxUserInfo.value.username = user.username
-  // wxUserInfo.value.userId = user.id
+  wxUserInfo.value.nickName = "微信用户"+user.nickname
+  wxUserInfo.value.userId = user.openid
   wxUserInfo.value = JSON.stringify(wxUserInfo.value)
   document.cookie="userInfo="+Base64.encode(wxUserInfo.value)+"; path=/";
 }

@@ -40,8 +40,23 @@ editorConfig.MENU_CONF['uploadImage'] = {
   withCredentials: true,
 // 最多可上传几个文件，默认为 100
   maxNumberOfFiles: 10,
+  customInsert(res, insertFn){
+           console.log(res.data)
+           insertFn(res.data, 'image', res.data)
+            //实验可以 可以控制缩放比例
+            const imgUrl = res.data.url;
+            const imgHtml = `<img src="${imgUrl}" alt="image" style="width: 40%;height:50%;margin:15px 0;display:block;" />`;
+            //
+            // // 获取编辑器实例并插入图片 HTML
+            const editor = editorRef.value;
+            console.log(editor)
+            if (editor) {
+              editor.dangerouslyInsertHtml(imgHtml); // 使用带样式的 HTML 插入图片
+            } else {
+              console.error('Editor is not initialized.');
+            }
 }
-
+}
 // 组件销毁时，也及时销毁编辑器
 onBeforeUnmount(() => {
   const editor = editorRef.value
