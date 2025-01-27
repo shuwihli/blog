@@ -86,6 +86,10 @@ public class WeChatController {
         WxUserInfo wxUserInfo = new WxUserInfo();
         wxUserInfo.sendMessage(responseBody, uuid);
         LoginUser userByName = userDetailMapper.getUserByName(wxUser.getOpenid());
+        /**根据openid来判断该用户是否存在，如不存在则创建一个用户对应该微信账号进行信息展示
+         * 微信用户默认密码 wechat
+         * 默认username openid
+         * */
         if (userByName != null) {
             return responseBody;
         }
