@@ -8,9 +8,8 @@ export function listart() {
 }
 export function getByIdArt(id) {
   return request({
-    url: '/api/article/getById',
-    method: 'get',
-    params:id
+    url: `/api/article/getById/${id}`,
+    method: 'get'
   })
 }
 

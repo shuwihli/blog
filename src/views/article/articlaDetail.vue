@@ -14,6 +14,9 @@
         </template>
         <!-- 评论插槽 -->
         <template #comment>
+        <SvgThumb></SvgThumb>
+        <SvgStar></SvgStar>
+
             <comment :artId=queryParam></comment>
         </template>
         <template #avatar>
@@ -34,16 +37,13 @@ import { useRouter ,useRoute} from 'vue-router';
 import {getByIdArt} from '@/api/article'
 import {checkProtocolAndIP} from "@/api/SystemApi/userInfo"
 import {ref,onMounted} from "vue"
+import SvgStar from '@/components/articleTem/SvgStar.vue';
 // 根据路由携带的文章Id进行查询
 const route = useRoute();
-const queryParam = route.query.id;
-const url = ref()
-const id = {
-    id :queryParam
-}
+const queryParam = route.params.d_id;
 const article = ref()
 onMounted(()=>{
-    getByIdArt(id).then((res)=>{
+    getByIdArt(route.params.d_id).then((res)=>{
     article.value = res.data.data
     if(!checkProtocolAndIP(article.value.avatar)){
         article.value.avatar = "http://127.0.0.1:9090/"+article.value.avatar

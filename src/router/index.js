@@ -8,9 +8,16 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     { 
-      path: '/lo',
-      name: 'Login',
-      component: Login,
+      path:"/",
+      name:"/",
+      component:()=>import("../views/index.vue"),
+      children:[
+        {
+          path: '/lo',
+          name: 'Login',
+          component: Login
+        }
+      ]
     },
     { 
       path: '/article',
@@ -30,7 +37,7 @@ const router = createRouter({
     },
       
     {
-      path: '/article_detail',
+      path: '/article_detail/:d_id',
       name: 'article_detail',
       component:()=>import('../views/article/articlaDetail.vue'),
       props:true

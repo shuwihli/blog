@@ -56,8 +56,7 @@ onMounted(()=>{
 //在新页面打开文章，传输文章编号做为参数
 function article_detail(id) {
   const route = router.resolve({
-    path: '/article_detail',
-    query: { id: id }
+    path: `/article_detail/${id}`
   })
   window.open(route.href, '_blank')
 }
