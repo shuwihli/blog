@@ -125,28 +125,13 @@
     grid-template-columns:auto 1fr;
     gap: 5%;
   }
-
-.aside-avater{
-  /* background-color: antiquewhite; */
-}
 .a-auther{
   font-size: 1.3rem;
-  font-weight: normal;
-  /* background-color: red; */
-}
+  font-weight: normal;}
 .a-auther > div{margin-bottom: 5px;}
-/* .w-input{
-    width: 70vw !important;
-    height: 10vh !important;
-    padding: 8px !important;
-    position: fixed !important;
-    top: 0 !important;
-    font-size: 28px !important;
-  } */
 .wa-container{
   width:100vw;
   height:8vh;
-  position:fixed;
   top: 0;
   display:flex;
   justify-content: space-between;
@@ -162,3 +147,9 @@
   background-color: rgb(121.3, 187.1, 255) !important;
   width: max-content;
 }
+.center{
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%); 
+} 

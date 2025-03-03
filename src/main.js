@@ -21,8 +21,8 @@ import comment from '@/components/comment/comment.vue'
 import 'undraw-ui/dist/style.css'
 import 'bytemd/dist/index.css'
 import SvgThumb from './components/articleTem/SvgThumb.vue'
-
 import { getUserInfo } from '@/utils/getCookie'
+import VueKinesis from "vue-kinesis"
 const user = createApp(app)
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     user.component(key, component)
@@ -38,6 +38,7 @@ user.component('SvgStar',SvgStar)
 user.component('SvgThumb',SvgThumb)
 user.use(ElementPlus)
 user.use(UndrawUi)
+user.use(VueKinesis)
 user.use(mojs)
 user.use(router)
 user.use(getUserInfo)

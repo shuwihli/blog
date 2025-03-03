@@ -1,8 +1,7 @@
 <template>
   <HorizontalNav/>
-<!-- <div class="common-layout"> -->
-      <!-- <el-aside class="aside"></el-aside> -->
-      <!-- <div class="main-container"> -->
+        <el-skeleton style="width: 100%" :loading="loading" animated :throttle="{ initVal: true, trailing: 1000 }" >
+          <template #default>
             <div class="content_list" v-for="item in items.value" :key="item.id" @click="article_detail(item.id)">
               <div class="list_left">
                 <div class="fw" style="margin-bottom:8px;font-weight: bolder">{{ item.title}}</div>
@@ -24,19 +23,23 @@
                 <div class="list_right">
                   <img class="list_img" v-if="item.cover" :src="item.cover[0]" alt="">
                   <img class="list_img" v-if="!item.cover" src="" alt="文章没有图片">
-               <!-- </div> -->
-            <!-- </div> -->
-              </div>
-  </div>
+        </div>
+            </div>
+          </template>  
+      </el-skeleton>
 
 </template>
 <script setup>
-import { reactive,ref, toRefs ,onMounted} from 'vue'
-import {listart,getHeat} from '@/api/article'
-import { useRoute, useRouter } from 'vue-router'
+import { reactive,ref ,onMounted} from 'vue'
+import {listart} from '@/api/article'
+import { useRouter } from 'vue-router'
 const items  = reactive([])
-const cov = ref()
+const loading = ref(true)
 const router = useRouter()
+onMounted(()=>{
+  loading.value = true
+  getData()
+})
 function getData(){
   const imgre = "http.+?(jpeg|bpm|png|webp|jpg|gif)"
   listart().then(res=>{
@@ -46,12 +49,10 @@ function getData(){
       Object.assign(res.data[i],{cover:url})
     }
     items.value = res.data
+    loading.value = false
   })
 }
-onMounted(()=>{
-  getHeat()
-  getData()
-})
+
 // 跳转详情页
 //在新页面打开文章，传输文章编号做为参数
 function article_detail(id) {
@@ -65,5 +66,4 @@ function stripHTML(html) { // 将html标签转换为纯文本内容
   temp.innerHTML = html;
   return temp.textContent || temp.innerText || '';
 }
-// const { circleUrl, squareUrl, sizeList } = toRefs(state)
 </script>

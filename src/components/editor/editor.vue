@@ -78,7 +78,6 @@ const text = ref(
 function getHtml() {
   text.value.html = editorRef.value ? editorRef.value.getHtml() : '';
   text.value.text = editorRef.value.getText();
-  console.log(text.value);
   return text.value  
 }
 // 暴露方法给父组件

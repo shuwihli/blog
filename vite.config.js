@@ -10,7 +10,7 @@ export default defineConfig({
     proxy:{
   '/api': {
     // target: 'http://.200.3:9090',
-    target: 'http://localhost:9090',
+    target: 'http://127.0.0.1:9090',
     changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, ''),
         },

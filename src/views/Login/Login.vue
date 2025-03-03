@@ -1,5 +1,6 @@
 <!-- 登录表单页 -->
 <template>
+
       <div v-loading="loading" class="login-new-wrap">
         <div class="contentform">
          <PopUps ref="PopUpsRef">
@@ -61,7 +62,6 @@
         </div>
       </div>
   <div class="footer-2024"></div>
- 
 </template>
 <script setup>
 import { reactive, ref,onMounted} from 'vue'
@@ -184,6 +184,6 @@ const cUserOrpass = ()=>{
   },1000)
 }
 </script>
-<style>
+<style scoped>
 
 </style>

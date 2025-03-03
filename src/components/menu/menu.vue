@@ -1,22 +1,12 @@
 <template>
     <el-menu
-    :default-active="activeIndex"
     class="el-menu"
     mode="horizontal"
     text-color="#000"
     @select="handleSelect"
   >
-  <el-menu-item index="1"><strong>LOGO</strong></el-menu-item>
+  <el-menu-item index="1" @click="home()" ><strong>LOGO</strong></el-menu-item>
   <el-menu-item index="1" @click="goArticle()" >首页</el-menu-item>
-  <!-- <el-menu-item index="1">BOT</el-menu-item> -->
-    <!-- <el-menu-item index="1"><router-link  to="/Login">沸点</router-link></el-menu-item> -->
-    <!-- <el-menu-item index="1">课程</el-menu-item>
-    <el-menu-item index="1">直播</el-menu-item>
-    <el-menu-item index="1">活动</el-menu-item>
-    <el-menu-item index="1">竞赛</el-menu-item>
-    <el-menu-item index="1">商城</el-menu-item>
-    <el-menu-item index="1">APP</el-menu-item> -->
-    <!-- <el-menu-item index="1" style="margin-right: 30px;">插件</el-menu-item> -->
     <el-menu-item index="1">
         <el-button class="bt-write"  @click="write">发布文章</el-button>
     </el-menu-item>
@@ -47,20 +37,6 @@
                         <el-col :span="24" style="margin-top: 18px;">
                         </el-col>
                     </el-row>
-                    <!-- <el-row span="24">
-                        <el-col :span="8" style="text-align: center;">
-                            <div style="height: 25px;font-size: 14px;" >1</div>
-                            <span>关注</span>
-                        </el-col>
-                        <el-col :span="8" style="text-align: center;">
-                            <div style="height: 25px;">1</div>
-                            <span>点赞</span>
-                        </el-col>
-                        <el-col :span="8" style="text-align: center;"   >
-                            <div style="height: 25px;">1</div>
-                            <span>动态</span>
-                        </el-col>
-                    </el-row> -->
                     <el-row class="userfoot">
                         <!-- <el-col :span="12" style="text-align:center;">设置</el-col> -->
                         <el-col :span="24" style="margin-left:22px; text-align:left;" @click="userlogout()">退出登录</el-col>
@@ -96,6 +72,7 @@ let PopUpsRef = ref();
 let popMessage =ref();
 const userInfo =ref()
 const avatarUrl = ref() //头像地址
+const activeIndex = 1
 const view = ref()
 const formInline = reactive({
   user: '',
@@ -115,6 +92,9 @@ function UserEditing(){
 }
 function write(){
     router.push('article/editor');
+}
+function home(){
+    router.push('/');
 }
 const openView = function (){
     view.value?view.value = false:view.value = true

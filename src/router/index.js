@@ -11,13 +11,11 @@ const router = createRouter({
       path:"/",
       name:"/",
       component:()=>import("../views/index.vue"),
-      children:[
-        {
-          path: '/lo',
-          name: 'Login',
-          component: Login
-        }
-      ]
+    },
+    {
+        path: '/lo',
+        name: 'Login',
+        component: Login
     },
     { 
       path: '/article',
@@ -64,6 +62,7 @@ const router = createRouter({
   ] 
 })
 router.beforeEach((to, from) => {
+  if(to.path === "/"){return true}
   if(! isAuthenticated()&&to.name !== 'Login'){
     alert("请登录")
     return { name: 'Login' }
