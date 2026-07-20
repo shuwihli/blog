@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <kinesis-container :audio="audioFile" :playAudio="isPlaying">
+        <kinesis-audio :audioIndex="50" :strength="50" type="scale">
+          <kinesis-element :strength="10" type="depth">
+            <div class="circle" @click="togglePlaying">
+              {{ isPlaying ? "Stop" : "Play" }}
+            </div>
+          </kinesis-element>
+        </kinesis-audio>
+      </kinesis-container>
+    <audio controls src="music.mp3"></audio>
+</figure>
+</body>
+</html>

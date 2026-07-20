@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.user.ShuLoveLi.SystemControl.Mapper.UserDetailMapper">
+    <resultMap id="userResultMap" type="com.user.ShuLoveLi.SystemControl.Domain.LoginUser">
+        <id property="id" column="id" />
+        <result property="userName" column="username" />
+        <result property="password" column="password" />
+        <result property="avatar" column="avatar" />
+        <result property="birthday" column="birthday" />
+        <result property="nickName" column="nickname" />
+        <result property="phone" column="phone" />
+        <result property="email" column="email" />
+<!--        <collection property="authorities" ofType="java.lang.String" column="authorities" />-->
+    </resultMap>
+    <!-- 插入用户信息 -->
+    <insert id="signUser" parameterType="com.user.ShuLoveLi.SystemControl.Domain.LoginUser">
+        INSERT INTO user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null and id != ''">`id`,</if>
+            <if test="userName != null and userName != ''">`username`,</if>
+            <if test="password != null and password != ''">`password`,</if>
+            <if test="avatar != null and avatar != ''">`avatar`,</if>
+            <if test="birthday != null and birthday != ''">`birthday`,</if>
+            <if test="nickName != null and nickName != ''">`nickname`,</if>
+            <if test="phone != null and phone != ''">`phone`,</if>
+            <if test="email != null and email != ''">`email`,</if>
+            <if test="authorities != null and authorities != ''">`authorities`,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=", ">
+            <if test="id != null and id != ''">#{id},</if>
+            <if test="userName != null and userName != ''">#{userName},</if>
+            <if test="password != null and password != ''">#{password},</if>
+            <if test="avatar != null and avatar != ''">#{avatar},</if>
+            <if test="birthday != null and birthday != ''">#{birthday},</if>
+            <if test="nickName != null and nickName != ''">#{nickName},</if>
+            <if test="phone != null and phone != ''">#{phone},</if>
+            <if test="email != null and email != ''">#{email},</if>
+            <if test="authorities != null and authorities != ''">"ROLE_USER",</if>
+        </trim>
+    </insert>
+</mapper>

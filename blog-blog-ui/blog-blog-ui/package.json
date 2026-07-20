@@ -1,0 +1,41 @@
+{
+  "name": "vue3project",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@bytemd/plugin-gfm": "^1.21.0",
+    "@bytemd/vue-next": "^1.21.0",
+    "@element-plus/icons-vue": "^2.3.1",
+    "@mojs/core": "^1.7.1",
+    "@react-spring/web": "^9.7.5",
+    "@vueuse/core": "^12.7.0",
+    "@wangeditor/editor": "^5.1.23",
+    "@wangeditor/editor-for-vue": "^5.1.12",
+    "animate.css": "^4.1.1",
+    "axios": "^1.7.4",
+    "bootstrap": "^5.3.0-alpha1",
+    "bpmn": "^0.2.2",
+    "element-plus": "^2.8.0",
+    "js-base64": "^3.7.7",
+    "js-cookie": "^3.0.5",
+    "undraw-ui": "^1.2.5",
+    "uuid": "^11.0.5",
+    "vue": "^3.4.29",
+    "vue-kinesis": "^2.0.5",
+    "vue-qr": "^4.0.9",
+    "vue-qrcode": "^2.2.2",
+    "vue-router": "^4.3.3",
+    "yarn": "^1.22.22"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.5",
+    "@vitejs/plugin-vue-jsx": "^4.0.0",
+    "vite": "^5.3.1"
+  }
+}
